@@ -20,7 +20,13 @@ export default defineConfig({
     presetIcons({
       scale: 1.2,
     }),
-    presetTypography(),
+    presetTypography({
+      cssExtend: {
+        a: {
+          'text-decoration': 'none',
+        },
+      },
+    }),
     presetWebFonts({
       fonts: {
         sans: 'DM Sans',
