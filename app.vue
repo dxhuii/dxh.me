@@ -11,6 +11,7 @@ useHead({
 
 <template>
   <NuxtLayout cl>
+    <VitePwaManifest />
     <NuxtPage />
   </NuxtLayout>
 </template>

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const online = useOnline()
+</script>
+
 <template>
   <div>
     <h1>
@@ -35,8 +39,8 @@
         <i class="mr-2" i-ri-bilibili-fill />哔哩哔哩
       </a>
     </div>
-    <h2 class="flex items-center">
-      <span flex-1>Projects</span>
+    <h2 class="flex items-center mt-4">
+      <span flex-1>项目</span>
       <div class="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer">
         <a target="_blank" href="https://github.com/dxhuii">
           <div class="m-2 i-ri-arrow-right-up-line" />
@@ -74,7 +78,12 @@
       </a>
     </div>
     <Suspense>
-      <PageView mt-6 />
+      <ClientOnly>
+        <PageView v-if="online" mt-6 />
+        <div v-else text-gray:80>
+          You're offline
+        </div>
+      </ClientOnly>
       <template #fallback>
         <div op50 italic>
           <span animate-pulse>Loading...</span>
