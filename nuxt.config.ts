@@ -7,18 +7,21 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/color-mode',
     '@vite-pwa/nuxt',
+    '@vue-macros/nuxt',
   ],
+  macros: {
+    setupSFC: true,
+    betterDefine: false,
+    defineModels: false,
+  },
   experimental: {
-    // when using generate, payload js assets included in sw precache manifest
-    // but missing on offline, disabling extraction it until fixed
     payloadExtraction: false,
     inlineSSRStyles: false,
     renderJsonPayloads: true,
-    typedPages: true,
   },
-  unocss: {
-    preflight: true,
-  },
+  css: [
+    '@unocss/reset/tailwind.css',
+  ],
   colorMode: {
     classSuffix: '',
   },

@@ -10,8 +10,9 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout cl>
-    <VitePwaManifest />
+  <NuxtLoadingIndicator />
+  <VitePwaManifest />
+  <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
