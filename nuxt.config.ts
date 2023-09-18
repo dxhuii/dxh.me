@@ -1,5 +1,7 @@
 import { pwa } from './config/pwa'
 
+const isDev = process.env.NODE_ENV === 'development'
+
 export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
@@ -25,16 +27,12 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
+  routeRules: {
+    '/**': isDev ? {} : { cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true } },
+  },
   nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext',
-      },
-    },
-    prerender: {
-      crawlLinks: false,
-      routes: ['/'],
-      ignore: ['/hi'],
+    routeRules: {
+      '/**': { isr: false },
     },
   },
   app: {
