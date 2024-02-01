@@ -46,7 +46,7 @@
     <div class="grid grid-cols-1 gap4 sm:grid-cols-2">
       <a
         class="rounded-md bg-gray-50 px4 py3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-100 dark:hover:bg-gray-50/20"
-        target="_blank" href="https://www.cangwangge.com/"
+        target="_blank" href="https://www.itrumors.com/"
       >
         <div class="h-full flex items-center justify-center">
           <div flex-1>
