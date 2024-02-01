@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  error: Object,
+  error: Object
 })
 
 const message = computed(() => String(props.error?.message || ''))
@@ -14,7 +14,7 @@ function handleError() {
 
 <template>
   <NuxtLayout>
-    <div flex="~ col" h-screen text-center items-center justify-center gap4>
+    <div flex="~ col" h-screen items-center justify-center gap4 text-center>
       <div text-3xl>
         {{ is404 ? 'This page could not be found' : 'An error occurred' }}
       </div>
@@ -22,7 +22,7 @@ function handleError() {
         Looks like you've followed a broken link or entered a URL that doesn't exist on this site.
       </div>
       <pre v-if="isDev">{{ error }}</pre>
-      <button n-link border px4 py1 rounded @click="handleError">
+      <button n-link border rounded px4 py1 @click="handleError">
         Go Back
       </button>
     </div>

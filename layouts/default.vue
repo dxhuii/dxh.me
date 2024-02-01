@@ -1,5 +1,5 @@
 <template>
-  <main class="py-20 px-10 w-4xl m-auto">
+  <main class="m-auto w-4xl px-10 py-20">
     <slot />
     <Footer />
   </main>

@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔀 Checkout Git Source
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: 🚀 Use Node.js lts/*
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: 📦 Install Dependencies
+        run: pnpm i
+
+      - name: ✅ Lint
+        run: pnpm lint
+
+  buildWeb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔀 Checkout Git Source
+        uses: actions/checkout@v4
+
+      - name: 📦 Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: 🚀 Use Node.js lts/*
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: 📦 Install Dependencies
+        run: pnpm i
+
+      - name: 🚧 Set up project
+        run: pnpm postinstall
+
+      - name: 🚧 Build
+        run: pnpm build
+
+      - name: 💪 Typecheck
+        run: pnpm typecheck
