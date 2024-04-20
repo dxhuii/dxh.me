@@ -1,13 +1,41 @@
+<script setup lang="ts">
+const list = [{
+  title: 'IT传闻',
+  href: 'https://www.itrumors.com/',
+  icon: 'i-twemoji-letter-t',
+  desc: 'IT传闻提供手机购买时间参考和购买建议',
+  target: '_blank'
+},
+{
+  title: '古文诗词',
+  href: 'https://www.guwenshici.com/',
+  icon: 'https://www.guwenshici.com/logo.png',
+  desc: '踏上古诗之旅_品读千古文化经典',
+  target: '_blank'
+},
+{
+  title: '小菠萝AI导航',
+  href: 'https://xbl.cc/',
+  icon: 'https://xbl.cc/logo.png',
+  desc: '一个汇聚全球优质AI工具的生成式AI工具导航平台',
+  target: '_blank'
+},
+{
+  title: '内容清单',
+  href: 'https://cms.im/',
+  icon: 'i-twemoji:blue-book',
+  desc: '收集一些有用的内容',
+  target: '_blank'
+}]
+</script>
+
 <template>
   <div>
-    <h1>
-      Ding Xiao Hui.
+    <h1 text-4xl font-light>
+      Hi, I'm <b>Ding Xiao Hui</b> 👋。
     </h1>
-    <div mt-4 text="xl">
-      Front-end developer.
-    </div>
-    <div mt-2 text="xl">
-      Currently working at Weimob.
+    <div text="2xl" mt-4 flex items-center font-light>
+      A NodeJS Full Stack <code class="transition-background mx2 cursor-pointer rounded bg-gray-200 bg-opacity-0 p1 text-3xl font-medium duration-200 dark:bg-gray-800/0 hover:bg-opacity-100 hover:dark:bg-gray-800/100"><div><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">&lt;</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">D</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">e</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">v</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">e</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">l</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">o</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">p</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">e</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">r</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;" /><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">/</span><span class="inline-block whitespace-pre" style="transform: translateY(0px); opacity: 1;">&gt;</span></div></code>
     </div>
     <div mt-4 flex>
       <a
@@ -35,43 +63,31 @@
         <i class="mr2" i-ri-bilibili-fill />哔哩哔哩
       </a>
     </div>
-    <h2 class="mt4 flex items-center">
-      <span flex-1>项目</span>
-      <div class="ml2 cursor-pointer op-50 transition-opacity hover:op-100">
-        <a target="_blank" href="https://github.com/dxhuii">
-          <div class="i-ri-arrow-right-up-line m2" />
-        </a>
-      </div>
+    <h2 class="mt4 flex">
+      项目目录
     </h2>
-    <div class="grid grid-cols-1 gap4 sm:grid-cols-2">
-      <a
-        class="rounded-md bg-gray-50 px4 py3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-100 dark:hover:bg-gray-50/20"
-        target="_blank" href="https://www.itrumors.com/"
+    <div class="grid grid-cols-1 mt4 gap4 sm:grid-cols-2">
+      <NuxtLink
+        v-for="item in list" :key="item.href"
+        :to="item.href"
+        class="rounded-md bg-gray-100 px4 py3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-200 dark:hover:bg-gray-50/20"
+        :target="item.target"
       >
         <div class="h-full flex items-center justify-center">
           <div flex-1>
-            <div font-medium leading-relaxed>IT传闻</div>
-            <div text-sm font-normal op-50>IT传闻提供手机购买时间参考和购买建议</div>
+            <div font-medium leading-relaxed>
+              {{ item.title }}
+            </div>
+            <div text-sm font-normal op-50>
+              {{ item.desc }}
+            </div>
           </div>
           <div ml-4 text-4xl op-75>
-            <div class="i-twemoji-letter-t" />
+            <img v-if="item.icon.includes('https')" h10 w10 :src="item.icon" :alt="item.title">
+            <div v-else :class="item.icon" />
           </div>
         </div>
-      </a>
-      <a
-        class="rounded-md bg-gray-50 px4 py3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-100 dark:hover:bg-gray-50/20"
-        target="_blank" href="https://github.com/dxhuii/delWeibo"
-      >
-        <div class="h-full flex items-center justify-center">
-          <div flex-1>
-            <div font-medium leading-relaxed>批量删除微博博文</div>
-            <div text-sm font-normal op-50>批量删除新浪微博的小工具</div>
-          </div>
-          <div ml-4 text-4xl op-75>
-            <div class="i-twemoji-delivery-truck" />
-          </div>
-        </div>
-      </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
