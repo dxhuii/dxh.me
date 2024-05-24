@@ -1,9 +1,9 @@
 <script setup>
 useHead({
-  title: 'Ding Xiao Hui',
+  title: '丁效辉',
   link: [
     {
-      rel: 'icon', type: 'image/png', href: '/nuxt.png'
+      rel: 'icon', type: 'image/png', href: '/favicon.png'
     }
   ]
 })

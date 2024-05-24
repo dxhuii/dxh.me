@@ -22,9 +22,9 @@ const list = [{
 },
 {
   title: '内容清单',
-  href: 'https://cms.im/',
+  href: 'https://www.cms.im/',
   icon: 'i-twemoji:blue-book',
-  desc: '收集一些有用的内容',
+  desc: '收集一些喜欢的工具和网站',
   target: '_blank'
 }]
 </script>
@@ -32,45 +32,45 @@ const list = [{
 <template>
   <div>
     <h1 text-4xl font-light>
-      Hi, I'm <b>Ding Xiao Hui</b> 👋。
+      Hi, 我是 <b>丁效辉</b> 👋。
     </h1>
     <div text="2xl" mt-4 flex items-center font-light>
-      A NodeJS Full Stack <code class="transition-background mx2 cursor-pointer rounded bg-gray-200 bg-opacity-0 p1 text-3xl font-medium duration-200 dark:bg-gray-800/0 hover:bg-opacity-100 hover:dark:bg-gray-800/100">&lt;Developer/&gt;</code>
+      A NodeJS Full Stack <code class="transition-background mx-2 cursor-pointer rounded bg-gray-200 bg-opacity-0 p-1 text-3xl font-medium duration-200 dark:bg-gray-800/0 hover:bg-opacity-100 hover:dark:bg-gray-800/100">&lt;Developer/&gt;</code>
     </div>
     <div mt-4 flex>
       <a
         target="_blank" href="https://github.com/dxhuii"
-        class="mr2 mt2 inline-flex items-center rounded-md bg-gray-50 px3 py2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-700 hover:text-white dark:hover:bg-white dark:hover:text-gray-900"
+        class="mr-2 mt-2 inline-flex items-center rounded-md bg-gray-50 px-3 py-2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-700 hover:text-white dark:hover:bg-white dark:hover:text-gray-900"
       >
-        <i class="mr2" i-ri-github-fill />Github
+        <i class="mr-2" i-ri-github-fill />Github
       </a>
       <a
         target="_blank" href="https://twitter.com/dxhuii"
-        class="mr2 mt2 inline-flex items-center rounded-md bg-gray-50 px3 py2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#00acee] hover:text-white"
+        class="mr-2 mt-2 inline-flex items-center rounded-md bg-gray-50 px-3 py-2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#00acee] hover:text-white"
       >
-        <i class="mr2" i-ri-twitter-fill />Twitter
+        <i class="mr-2" i-ri-twitter-fill />Twitter
       </a>
       <a
         target="_blank" href="https://weibo.com/dingxiaohui"
-        class="mr2 mt2 inline-flex items-center rounded-md bg-gray-50 px3 py2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#ff8200] hover:text-white"
+        class="mr-2 mt-2 inline-flex items-center rounded-md bg-gray-50 px-3 py-2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#ff8200] hover:text-white"
       >
-        <i class="mr2" i-ri-weibo-fill />微博
+        <i class="mr-2" i-ri-weibo-fill />微博
       </a>
       <a
         target="_blank" href="https://space.bilibili.com/5552452"
-        class="mr2 mt2 inline-flex items-center rounded-md bg-gray-50 px3 py2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#fb7299] hover:text-white"
+        class="mr-2 mt-2 inline-flex items-center rounded-md bg-gray-50 px-3 py-2 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-[#fb7299] hover:text-white"
       >
-        <i class="mr2" i-ri-bilibili-fill />哔哩哔哩
+        <i class="mr-2" i-ri-bilibili-fill />哔哩哔哩
       </a>
     </div>
-    <h2 class="mt4 flex">
+    <h2 class="mt-4 flex">
       项目目录
     </h2>
-    <div class="grid grid-cols-1 mt4 gap4 sm:grid-cols-2">
+    <div class="grid grid-cols-1 mt-4 gap-4 sm:grid-cols-2">
       <NuxtLink
         v-for="item in list" :key="item.href"
         :to="item.href"
-        class="rounded-md bg-gray-100 px4 py3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-200 dark:hover:bg-gray-50/20"
+        class="rounded-md bg-gray-100 px-4 py-3 decoration-none transition-colors dark:bg-gray-50/10 hover:bg-gray-200 dark:hover:bg-gray-50/20"
         :target="item.target"
       >
         <div class="h-full flex items-center justify-center">
