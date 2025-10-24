@@ -2,7 +2,7 @@
 const list = [{
   title: 'IT传闻',
   href: 'https://www.itrumors.com/',
-  icon: 'i-twemoji-letter-t',
+  icon: 'https://www.itrumors.com/logo.png',
   desc: 'IT传闻提供手机购买时间参考和购买建议',
   target: '_blank'
 },
@@ -21,9 +21,23 @@ const list = [{
   target: '_blank'
 },
 {
-  title: '内容清单',
+  title: '免费在线拼图',
+  href: 'https://www.olpuzzle.com/',
+  icon: 'https://www.olpuzzle.com/logo.png',
+  desc: '免费在线拼图，在线拼图，智趣无限',
+  target: '_blank'
+},
+{
+  title: '哒可哒可',
+  href: 'https://www.dakedake.com/',
+  icon: 'https://www.dakedake.com/logo.png',
+  desc: '哒可哒可是一个致力于动漫新番的网站',
+  target: '_blank'
+},
+{
+  title: '内容收集',
   href: 'https://www.cms.im/',
-  icon: 'i-twemoji:blue-book',
+  icon: 'https://www.cms.im/favicon.svg',
   desc: '收集一些喜欢的工具和网站',
   target: '_blank'
 }]

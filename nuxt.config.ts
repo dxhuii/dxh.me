@@ -3,12 +3,6 @@ import { pwa } from './config/pwa'
 const isDev = process.env.NODE_ENV === 'development'
 
 export default defineNuxtConfig({
-  future: {
-    typescriptBundlerResolution: true
-  },
-  features: {
-    inlineStyles: false
-  },
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',
@@ -21,11 +15,6 @@ export default defineNuxtConfig({
     setupSFC: true,
     betterDefine: false,
     defineModels: false
-  },
-  experimental: {
-    payloadExtraction: false,
-    renderJsonPayloads: true,
-    sharedPrerenderData: true
   },
   css: [
     '@unocss/reset/tailwind.css'
