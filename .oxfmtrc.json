@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "semi": false,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "endOfLine": "lf",
+  "ignorePatterns": [
+    ".nuxt/**",
+    ".output/**",
+    ".nitro/**",
+    ".data/**",
+    ".cache/**",
+    "dist/**",
+    "node_modules/**",
+    "public/**",
+    "pnpm-lock.yaml"
+  ]
+}

@@ -1,4 +1,5 @@
 import process from 'node:process'
+
 import type { ModuleOptions } from '@vite-pwa/nuxt'
 
 const scope = '/'
@@ -7,72 +8,47 @@ export const pwa: ModuleOptions = {
   registerType: 'autoUpdate',
   scope,
   base: scope,
+  injectRegister: 'auto',
   manifest: {
     id: scope,
     scope,
     name: 'dxh.me',
-    short_name: 'dxh.me',
-    description: 'dxh.me',
-    theme_color: '#ffffff',
+    short_name: 'dxh',
+    description: 'dxh 的个人网站 · NodeJS Full Stack Developer',
+    lang: 'zh-CN',
+    start_url: '/',
+    display: 'standalone',
+    orientation: 'portrait',
+    theme_color: '#0b0d12',
+    background_color: '#0b0d12',
     icons: [
       {
         src: 'pwa-192x192.png',
         sizes: '192x192',
-        type: 'image/png'
+        type: 'image/png',
       },
       {
         src: 'pwa-512x512.png',
         sizes: '512x512',
-        type: 'image/png'
+        type: 'image/png',
       },
       {
         src: 'maskable-icon.png',
         sizes: '512x512',
         type: 'image/png',
-        purpose: 'any maskable'
-      }
-    ]
+        purpose: 'maskable',
+      },
+    ],
   },
   workbox: {
-    globPatterns: ['**/*.{js,css,html,txt,png,ico,svg}'],
-    navigateFallbackDenylist: [/^\/api\//],
+    globPatterns: ['**/*.{js,css,html,ico,png,svg,webp,woff2,txt}'],
     navigateFallback: '/',
     cleanupOutdatedCaches: true,
-    runtimeCaching: [
-      {
-        urlPattern: /^https:\/\/fonts.googleapis.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'google-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      },
-      {
-        urlPattern: /^https:\/\/fonts.gstatic.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'gstatic-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      }
-    ]
   },
   registerWebManifestInRouteRules: true,
   writePlugin: true,
   devOptions: {
     enabled: process.env.VITE_PLUGIN_PWA === 'true',
-    navigateFallback: scope
-  }
+    navigateFallback: scope,
+  },
 }

@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "unicorn", "typescript", "oxc", "promise", "node", "vue"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn",
+    "pedantic": "off",
+    "style": "off",
+    "restriction": "off",
+    "nursery": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "globals": {
+    "defineNuxtConfig": "readonly",
+    "defineEventHandler": "readonly",
+    "useHead": "readonly",
+    "useColorMode": "readonly",
+    "useSeoMeta": "readonly",
+    "computed": "readonly",
+    "ref": "readonly"
+  },
+  "ignorePatterns": [
+    ".nuxt",
+    ".output",
+    ".nitro",
+    ".data",
+    ".cache",
+    "dist",
+    "node_modules",
+    "public"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.vue"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}
