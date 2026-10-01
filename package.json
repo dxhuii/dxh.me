@@ -23,7 +23,6 @@
     "vue-router": "^5.3.1"
   },
   "devDependencies": {
-    "@iconify-json/game-icons": "^1.2.4",
     "@iconify-json/ri": "^1.2.10",
     "oxfmt": "^0.70.0",
     "oxlint": "^1.85.0",

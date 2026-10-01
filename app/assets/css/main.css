@@ -2,12 +2,19 @@
   color-scheme: light;
   --dxh-bg: #f3f4f7;
   --dxh-fg: #16171a;
+  /* 卡片跟随鼠标的聚光灯与顶部高光边 */
+  --dxh-spot-size: 300px;
+  --dxh-spot-alpha: 0.42;
+  --dxh-highlight: rgb(255 255 255 / 0.9);
 }
 
 html.dark {
   color-scheme: dark;
   --dxh-bg: #0b0d12;
   --dxh-fg: #f2f3f5;
+  --dxh-spot-size: 320px;
+  --dxh-spot-alpha: 0.62;
+  --dxh-highlight: rgb(255 255 255 / 0.22);
 }
 
 html {

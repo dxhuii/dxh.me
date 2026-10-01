@@ -1,4 +1,3 @@
-import gameIcons from '@iconify-json/game-icons/icons.json'
 import riIcons from '@iconify-json/ri/icons.json'
 import {
   defineConfig,
@@ -23,7 +22,6 @@ export default defineConfig({
       // 必须使用函数形式，@iconify/utils 的 loadIcon 仅对函数返回值执行 searchForIcon
       collections: {
         ri: () => riIcons,
-        'game-icons': () => gameIcons,
       },
       extraProperties: {
         display: 'inline-block',
@@ -33,14 +31,19 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   shortcuts: {
-    /** 卡片外壳：玻璃质感 + 悬停微抬升 */
+    /** 卡片外壳：玻璃质感 + 立体阴影 + 悬停抬升 */
     card: [
       'group relative flex h-full flex-col overflow-hidden rounded-3xl p-2.5',
-      'border border-black/5 bg-white/70 backdrop-blur-xl',
-      'dark:border-white/10 dark:bg-white/5',
+      'border border-black/5',
+      'bg-gradient-to-b from-white/85 to-white/55 backdrop-blur-xl',
+      'shadow-[0_1px_2px_rgba(0,0,0,0.04),0_12px_28px_-12px_rgba(0,0,0,0.18)]',
+      'dark:border-white/10 dark:from-white/10 dark:to-white/[0.04]',
+      'dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_16px_34px_-14px_rgba(0,0,0,0.6)]',
       'transition-all duration-300 ease-out',
-      'hover:-translate-y-1 hover:border-black/10 hover:bg-white hover:shadow-lg',
-      'dark:hover:border-white/15 dark:hover:bg-white/10',
+      'hover:-translate-y-1.5 hover:border-black/10 hover:from-white hover:to-white',
+      'hover:shadow-[0_2px_4px_rgba(0,0,0,0.05),0_24px_48px_-16px_rgba(0,0,0,0.3)]',
+      'dark:hover:border-white/15 dark:hover:from-white/15 dark:hover:to-white/[0.06]',
+      'dark:hover:shadow-[0_2px_4px_rgba(0,0,0,0.5),0_28px_52px_-16px_rgba(0,0,0,0.75)]',
     ].join(' '),
     /** 卡片底部胶囊按钮 */
     'card-pill': [

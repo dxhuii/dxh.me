@@ -14,6 +14,8 @@ export interface CardItem {
   icon?: string
   /** 本地图片地址，与 icon 二选一 */
   image?: string
+  /** 横版 logo（如魔兽世界字标），logo 容器会撑满卡片宽度 */
+  logoWide?: boolean
   /** 卡片右上角的补充标签 */
   tag?: string
 }
@@ -88,32 +90,33 @@ export const games: CardItem[] = [
     title: '流放之路',
     desc: 'Path of Exile · 暗黑类刷宝 ARPG',
     href: 'https://www.pathofexile.com/',
-    icon: 'i-game-icons-crossed-swords',
-    accent: '#8b5cf6',
+    image: '/logos/games/poe.png',
+    accent: '#d9452c',
     tag: 'ARPG',
   },
   {
     title: '流放之路 2',
     desc: 'Path of Exile 2 · 全新一代暗黑 ARPG',
     href: 'https://pathofexile2.com/',
-    icon: 'i-game-icons-two-handed-sword',
-    accent: '#06b6d4',
+    image: '/logos/games/poe2.png',
+    accent: '#9b1f2a',
     tag: 'ARPG',
   },
   {
     title: '火炬之光：无限',
     desc: 'Torchlight: Infinite · 赛季制刷宝 ARPG',
     href: 'https://torchlight.xd.com/cn',
-    icon: 'i-game-icons-flame',
-    accent: '#f97316',
+    image: '/logos/games/torchlight.png',
+    accent: '#f0932b',
     tag: 'ARPG',
   },
   {
     title: '魔兽世界',
     desc: 'World of Warcraft · 经典 MMORPG',
     href: 'https://worldofwarcraft.blizzard.com/',
-    icon: 'i-game-icons-dragon-head',
-    accent: '#3b82f6',
+    image: '/logos/games/wow.png',
+    logoWide: true,
+    accent: '#3f8ae0',
     tag: 'MMORPG',
   },
 ]

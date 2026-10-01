@@ -6,6 +6,7 @@ const props = defineProps<{
   accent: string
   icon?: string
   image?: string
+  logoWide?: boolean
   tag?: string
 }>()
 
@@ -17,10 +18,37 @@ const host = computed(() => {
     return props.href
   }
 })
+
+/** 卡片根节点：把光标坐标写进 CSS 变量，驱动跟随鼠标的聚光灯 */
+const cardRef = ref<HTMLElement | null>(null)
+/** 聚光层：品牌色直接写入元素，不走 :style 绑定 */
+const spotRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  spotRef.value?.style.setProperty('--accent', props.accent)
+})
+
+function handlePointerMove(event: PointerEvent) {
+  const el = cardRef.value
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  el.style.setProperty('--mx', `${event.clientX - rect.left}px`)
+  el.style.setProperty('--my', `${event.clientY - rect.top}px`)
+}
 </script>
 
 <template>
-  <a :href="href" target="_blank" rel="noopener noreferrer" class="card">
+  <a
+    ref="cardRef"
+    :href="href"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="card group"
+    @pointermove="handlePointerMove"
+  >
+    <!-- 跟随鼠标的品牌色聚光 -->
+    <span ref="spotRef" class="spotlight" aria-hidden="true" />
+
     <div class="relative flex flex-1 flex-col items-center px-3 pt-8 pb-6 text-center">
       <!-- 品牌色光晕 -->
       <div
@@ -28,14 +56,21 @@ const host = computed(() => {
         :style="{ background: accent }"
       />
 
-      <!-- 项目 Logo -->
+      <!-- 项目 / 游戏 Logo -->
       <div
         v-if="image"
-        class="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm dark:border-white/10"
+        class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-transform duration-300 group-hover:scale-[1.04] dark:border-white/10"
+        :class="logoWide ? 'h-16 w-full px-2' : 'h-14 w-14'"
       >
-        <img :src="image" :alt="title" class="h-10 w-10 object-contain" loading="lazy" />
+        <img
+          :src="image"
+          :alt="title"
+          loading="lazy"
+          class="object-contain"
+          :class="logoWide ? 'max-h-12 w-auto max-w-full' : 'h-10 w-10'"
+        />
       </div>
-      <!-- 游戏图标 -->
+      <!-- 备用图标 -->
       <div
         v-else
         class="relative flex h-14 w-14 items-center justify-center rounded-full text-2xl text-white transition-transform duration-300 group-hover:scale-105"
@@ -67,3 +102,44 @@ const host = computed(() => {
     </div>
   </a>
 </template>
+
+<style scoped>
+/* 顶部高光边：让卡片有被光打亮的立体感 */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 14%;
+  left: 14%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--dxh-highlight), transparent);
+}
+
+/* 聚光灯：光心跟着 --mx / --my 移动 */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    var(--dxh-spot-size) circle at var(--mx, 50%) var(--my, 0%),
+    var(--accent, #6366f1),
+    transparent 70%
+  );
+}
+
+.card:hover .spotlight,
+.card:focus-visible .spotlight {
+  opacity: var(--dxh-spot-alpha);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotlight {
+    transition: none;
+  }
+}
+</style>
