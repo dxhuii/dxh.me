@@ -70,11 +70,11 @@ export const projects: CardItem[] = [
     accent: '#4c8dff',
   },
   {
-    title: '小菠萝AI导航',
-    desc: '一个汇聚全球优质AI工具的生成式AI工具导航平台',
-    href: 'https://xbl.cc/',
+    title: '小部落',
+    desc: '发现好游戏 · 热门游戏、游戏社区与玩家动态',
+    href: 'https://www.xbl.cc/',
     image: '/logos/xbl.png',
-    accent: '#f2a93b',
+    accent: '#22c55e',
   },
   {
     title: '内容收集',
