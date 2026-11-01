@@ -31,9 +31,10 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png', sizes: '32x32' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'apple-touch-icon', href: '/pwa-192x192.png' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
       ],
     },
   },

@@ -1,5 +1,3 @@
-import process from 'node:process'
-
 import type { ModuleOptions } from '@vite-pwa/nuxt'
 
 const scope = '/'
@@ -48,7 +46,8 @@ export const pwa: ModuleOptions = {
   registerWebManifestInRouteRules: true,
   writePlugin: true,
   devOptions: {
-    enabled: process.env.VITE_PLUGIN_PWA === 'true',
-    navigateFallback: scope,
+    // 开发环境不注册 Service Worker：否则浏览器会反复请求并不存在的 /sw.js，
+    // 请求回退到 SPA 后触发 [VUE_ROUTER_R0004] 日志刷屏。PWA 只在构建产物里生效。
+    enabled: false,
   },
 }

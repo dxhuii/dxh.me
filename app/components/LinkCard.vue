@@ -6,7 +6,6 @@ const props = defineProps<{
   accent: string
   icon?: string
   image?: string
-  logoWide?: boolean
   tag?: string
 }>()
 
@@ -56,18 +55,16 @@ function handlePointerMove(event: PointerEvent) {
         :style="{ background: accent }"
       />
 
-      <!-- 项目 / 游戏 Logo -->
+      <!-- 项目 / 游戏 Logo：白色底板贴合 Logo 宽度，横版字标和方形图标高度统一 -->
       <div
         v-if="image"
-        class="relative flex items-center justify-center overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-transform duration-300 group-hover:scale-[1.04] dark:border-white/10"
-        :class="logoWide ? 'h-16 w-full px-2' : 'h-14 w-14'"
+        class="relative inline-flex items-center justify-center rounded-2xl border border-black/5 bg-white px-2.5 py-2 shadow-sm transition-transform duration-300 group-hover:scale-[1.04] dark:border-white/10"
       >
         <img
           :src="image"
           :alt="title"
           loading="lazy"
-          class="object-contain"
-          :class="logoWide ? 'max-h-12 w-auto max-w-full' : 'h-10 w-10'"
+          class="h-10 w-auto max-w-[152px] object-contain"
         />
       </div>
       <!-- 备用图标 -->

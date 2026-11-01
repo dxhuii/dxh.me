@@ -14,11 +14,13 @@ import { profile, socials } from '~/data/site'
     />
 
     <div class="relative">
-      <span
-        class="font-mono flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 via-violet-500 to-fuchsia-500 text-xl font-black text-white shadow-lg shadow-indigo-500/25"
-      >
-        D
-      </span>
+      <img
+        src="/logo.svg"
+        alt="dxh"
+        width="44"
+        height="44"
+        class="h-11 w-11 rounded-2xl shadow-lg shadow-indigo-500/25"
+      />
 
       <h1 class="mt-5 text-2xl font-semibold tracking-tight sm:mt-6 sm:text-4xl">
         {{ profile.greeting }} {{ profile.name }} <span class="wave">👋</span>。

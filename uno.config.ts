@@ -33,7 +33,7 @@ export default defineConfig({
   shortcuts: {
     /** 卡片外壳：玻璃质感 + 立体阴影 + 悬停抬升 */
     card: [
-      'group relative flex h-full flex-col overflow-hidden rounded-3xl p-2.5',
+      'relative flex h-full flex-col overflow-hidden rounded-3xl p-2.5',
       'border border-black/5',
       'bg-gradient-to-b from-white/85 to-white/55 backdrop-blur-xl',
       'shadow-[0_1px_2px_rgba(0,0,0,0.04),0_12px_28px_-12px_rgba(0,0,0,0.18)]',

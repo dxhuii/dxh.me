@@ -14,14 +14,12 @@ export interface CardItem {
   icon?: string
   /** 本地图片地址，与 icon 二选一 */
   image?: string
-  /** 横版 logo（如魔兽世界字标），logo 容器会撑满卡片宽度 */
-  logoWide?: boolean
   /** 卡片右上角的补充标签 */
   tag?: string
 }
 
 export const profile = {
-  name: 'DXH',
+  name: 'Dxh',
   greeting: 'Hi, 我是',
   role: 'A NodeJS Full Stack',
   roleCode: '<Developer/>',
@@ -115,7 +113,6 @@ export const games: CardItem[] = [
     desc: 'World of Warcraft · 经典 MMORPG',
     href: 'https://worldofwarcraft.blizzard.com/',
     image: '/logos/games/wow.png',
-    logoWide: true,
     accent: '#3f8ae0',
     tag: 'MMORPG',
   },
